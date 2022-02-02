@@ -16,6 +16,10 @@ public class EchoClientThread extends Thread{
         this.echoSocket = clientSocket;
     }
 
+    public EchoClientThread() throws IOException {
+        this.echoSocket = new Socket("127.0.0.1", 35000);
+    }
+
     public void closeConnection(BufferedReader stdIn) throws IOException {
         out.close();
         in.close();
@@ -26,7 +30,7 @@ public class EchoClientThread extends Thread{
     public void startConnection() throws IOException {
 
         try {
-            echoSocket = new Socket("127.0.0.1", 35000);
+
             out = new PrintWriter(echoSocket.getOutputStream(), true);
             in = new BufferedReader(new InputStreamReader(echoSocket.getInputStream()));
         } catch (UnknownHostException e) {
@@ -55,6 +59,17 @@ public class EchoClientThread extends Thread{
             startConnection();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) throws IOException {
+        int times = 5;
+
+        for (int i = 0; i < times; i++) {
+            System.out.print("Hola" + i);
+            Thread thread = new EchoClientThread( );
+            thread.start();
+            System.out.print("Hola" + i);
         }
     }
 }
