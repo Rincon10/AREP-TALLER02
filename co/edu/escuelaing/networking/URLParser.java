@@ -1,4 +1,4 @@
-package co.edu.escuelaing.edu.networking;
+package co.edu.escuelaing.networking;
 
 import java.net.MalformedURLException;
 import java.net.URL;

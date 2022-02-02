@@ -1,4 +1,4 @@
-package co.edu.escuelaing.edu.networking;
+package co.edu.escuelaing.networking;
 
 import java.io.BufferedReader;
 import java.io.IOException;
